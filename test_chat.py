@@ -21,7 +21,7 @@
 ###############################################################################
 
 from bot.chatbot import CHATBOT
-from bot.eliza import ELIZA 
+from bot.eliza import ELIZA
 import random
 
 def start():
@@ -33,7 +33,7 @@ def recibir():
     c.mensaje(mensa)
 
 eli=ELIZA()
-c = CHATBOT("652982145:AAH8Nb15GuXEbVtfGU4TGlhBNlFUEmr94vo")
+c = CHATBOT("TOKEN")
 c.ordenes["start"]=start
 c.recibir(recibir)
 c.bucle_espera()

@@ -1,0 +1,25 @@
+Protocolo de comunicación
+
++---+---+---+----+
+| r | 1 | 1 | \n |
++---+---+---+----+
+
+rele + tipo_valor + estado + \n
+
+tipo_valor
+	|
+	 ->1
+	|
+	 ->2
+	|
+	 ->3
+	|
+	 ->4
+	 
+estado 
+	|
+	 -> 0 = apagado
+	|
+	 -> 1 = prendido
+	|
+	 -> e = estado 

@@ -42,15 +42,18 @@ class ELIZA(object):
         "tuyo": "mio",
         "vuestro": "nuestro",
         "sobre ti": "sobre mi",
-        "sobre mi": "sobre ti"
+        "sobre mi": "sobre ti",
+        "tu":"mi",
+        "vos":"yo",
+
     }
 
     # patrones psicologicos más probables
     psychobabble = [
         [r'necesito(.*)',
-         ["¿Por qué necesita {0}?",
+         ["¿Por qué necesitas {0}?",
           "¿Realmente te ayudaría a obtener {0}?",
-          "¿Está seguro de que necesita {0}?"]],
+          "¿Está seguro de que necesitas {0}?"]],
 
         [r'por que no puedes ([^\?]*)\??' or r'por qué no puedes ([^\?]*)\??',
          ["¿De verdad crees que no lo hago? {0}?",
@@ -256,6 +259,7 @@ class ELIZA(object):
     def __init__ (self):
         """ Class initialiser """
         pass
+
     def reflect(self,fragment):
         tokens = fragment.lower().split()
         for i, token in enumerate(tokens):
@@ -271,18 +275,3 @@ class ELIZA(object):
                 response = random.choice(responses)
                 return response.format(*[self.reflect(g) for g in match.groups()])
 
-
-# def main():
-    # eli = ELIZA()
-    # print ("Hola ¿Cómo te sientes hoy?¿Con resaca?")
-
-    # while True:
-        # statement = input("> ").lower()
-        # print(eli.analyze(statement))
-
-        # if statement == "quit":
-            # break
-
-
-# if __name__ == "__main__":
-    # main()

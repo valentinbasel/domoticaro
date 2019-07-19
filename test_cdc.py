@@ -26,7 +26,7 @@ for t in range(17):
     print (rele2.conmutar())
     print (rele3.conmutar())
     print (rele4.conmutar())
-    time.sleep(0.1)
+    time.sleep(3)
     
 casa.hardware.cerrar()
 

@@ -8,7 +8,7 @@ rele2 = casa.hardware.Rele_2
 rele3 = casa.hardware.Rele_3
 rele4 = casa.hardware.Rele_4
 LCD = casa.hardware.lcd 
-a = casa.hardware.Analogico1
+a = casa.hardware.Analogico_1
 
 # for t in range(9):
     # valor =str(a.leer())

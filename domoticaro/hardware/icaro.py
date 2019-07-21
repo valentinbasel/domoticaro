@@ -48,5 +48,5 @@ class PIC18F4550(BASE_HARDWARE):
         self.Rele_2 = RELE(2,self._enviar)
         self.Rele_3 = RELE(3,self._enviar)
         self.Rele_4 = RELE(4,self._enviar)
-        self.Analogico1 = ANALOGICO(1,self._enviar)
+        self.Analogico_1 = ANALOGICO(1,self._enviar)
         self.lcd = LCD (self._enviar)

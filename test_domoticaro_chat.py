@@ -15,7 +15,8 @@ def start():
     c.mensaje("comencemos a usar nuestro super chatbot")
 
 def recibir():
-    cadena = c.mensaje_usuario.lower()
+    cadena = c.mensaje_usuario()
+    cadena = cadena.lower()
     if cadena.find("prender")>=0:
         if rele1.estado()==0:
             c.mensaje("prendo la luz")
@@ -37,7 +38,7 @@ casa.hardware.iniciar("/dev/ttyACM0")
 rele1 = casa.hardware.Rele_1
 
 eli=ELIZA()
-c = CHATBOT("652982145:AAH8Nb15GuXEbVtfGU4TGlhBNlFUEmr94vo")
+c = CHATBOT("TOKEN")
 c.ordenes["start"]=start
 c.recibir(recibir)
 c.bucle_espera()

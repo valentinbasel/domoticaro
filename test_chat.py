@@ -28,8 +28,8 @@ def start():
     c.mensaje("comencemos a usar nuestro super chatbot")
 
 def recibir():
-    cadena = c.mensaje_usuario.lower()
-    mensa=eli.analyze(cadena)
+    cadena = c.mensaje_usuario()
+    mensa=eli.analyze(cadena.lower())
     c.mensaje(mensa)
 
 eli=ELIZA()

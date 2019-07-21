@@ -37,8 +37,7 @@ class ROBOT(object):
         if placa == "icaro_cdc":
             from .hardware.icaro import PIC18F4550
             self.hardware=PIC18F4550("cdc")
-        if placa == "emulador":
-            print ("emulador no implementado")
+
 
 def iniciar(placa = "icaro_cdc"):
     """TODO: Docstring for iniciar.

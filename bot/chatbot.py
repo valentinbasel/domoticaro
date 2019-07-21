@@ -21,20 +21,17 @@
 #
 ###############################################################################
 
-
-#import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 
 class CHATBOT(object):
-
     """Docstring for CHATBOT.
 
         Capas de abstracción para el manejo y creación de un bot conversacional
     """
 
     def __init__(self,token):
-        """TODO: to be defined1.
+        """
 
         :token: TODO
 
@@ -44,7 +41,7 @@ class CHATBOT(object):
         self.updater = Updater(token , use_context=True)
         self.ordenes={}
         self.mensajes={}
-        self.mensaje_usuario=""
+        self.__mensaje_usuario=""
         self.__recibir=None
 
     def manejador_ordenes(self, update,context):
@@ -57,7 +54,7 @@ class CHATBOT(object):
         self.update = update
         self.context = context
         key=str(update.message.text).strip("/")
-        self.mensaje_usuario = update.message.text
+        self.__mensaje_usuario = update.message.text
         a=self.ordenes[key]
         a()
 
@@ -72,12 +69,15 @@ class CHATBOT(object):
         self.update = update
         self.context = context
         key=str(update.message.text)
-        self.mensaje_usuario = key
-        # if key in self.mensajes.keys():
-            # a=self.mensajes[key]
-            # a()
-        # else:
+        self.__mensaje_usuario = key
         self.__recibir()
+
+    def mensaje_usuario (self):
+        """TODO: Docstring for mensaje_usuario
+        :returns: self.__mensaje_usuario
+
+        """
+        return self.__mensaje_usuario 
 
     def recibir(self, arg1):
         """TODO: Docstring for recibir.

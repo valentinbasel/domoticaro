@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###############################################################################
@@ -25,12 +27,15 @@ from bot.eliza import ELIZA
 import random
 from os import listdir
 from os.path import isfile, join
+import domoticaro
+import time 
+casa = domoticaro.iniciar("arduino")
+casa.hardware.iniciar("/dev/ttyACM0")
+rele1 = casa.hardware.Rele_1
+rele2 = casa.hardware.Rele_2 
+rele3 = casa.hardware.Rele_3
+rele4 = casa.hardware.Rele_4
 
-def memes(mypath):
-    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-    rf=mypath+onlyfiles[random.randint(0,len(onlyfiles)-1)]
-    print(rf)
-    return rf
 def ayuda():
     c.mensaje("soy un bot que puede enviar memes")
 def start():
@@ -43,8 +48,14 @@ def start():
 def recibir():
     cadena = c.mensaje_usuario()
     cadena = cadena.lower()
-    if cadena.find("hola") >=0:
-        c.mensaje("hola, como estas?")
+    if cadena.find("prendo") >=0:
+        c.mensaje("henciendo led")
+        casa.hardware.Rele_1.on()
+
+    elif cadena.find("apago") >=0:
+        c.mensaje("apago led")
+        casa.hardware.Rele_1.off()
+
     else:
         mensa=eli.analyze(cadena.lower())
         c.mensaje(mensa)

@@ -37,9 +37,12 @@ class BASE_HARDWARE(object):
         #print ("inicio la placa 18f4550")
         # esto es medio raro, habria que ver como mejorar, sobre todo si queremos 
         # habilitar la placa con otro puerto
-        if puerto=="cdc":
+        if puerto=="apicaro":
             from .serie import CDC
             print("inicio el hardware con puerto CDC")
+            self.__comunicacion = CDC()
+        elif puerto == "arduino":
+            from .serie_arduino import CDC
             self.__comunicacion = CDC()
         else:
             print ("error de puerto seleccionado")

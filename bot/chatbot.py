@@ -43,6 +43,7 @@ class CHATBOT(object):
         self.mensajes={}
         self.__mensaje_usuario=""
         self.__recibir=None
+        self.chat_id = None
 
     def manejador_ordenes(self, update,context):
         """TODO: Docstring for manejador.
@@ -53,6 +54,8 @@ class CHATBOT(object):
         """
         self.update = update
         self.context = context
+        self.chat_id = self.update.message.chat_id
+
         key=str(update.message.text).strip("/")
         self.__mensaje_usuario = update.message.text
         a=self.ordenes[key]
@@ -68,6 +71,8 @@ class CHATBOT(object):
         """
         self.update = update
         self.context = context
+
+        self.chat_id = self.update.message.chat_id
         key=str(update.message.text)
         self.__mensaje_usuario = key
         self.__recibir()
@@ -87,6 +92,25 @@ class CHATBOT(object):
 
         """
         self.__recibir = arg1
+
+    def enviar_img(self, arg1):
+        """TODO: Docstring for enviar_img.
+
+        :arg1: TODO
+        :returns: TODO
+
+        """
+        self.update.message.bot.send_photo(chat_id=self.chat_id, 
+                                            photo=open(arg1, 'rb'))
+
+    def user_id(self):
+        """TODO: Docstring for user_id.
+        :returns: TODO
+
+        """
+        #update.message.chat_id
+        return self.chat_id 
+    
     def mensaje(self,arg1):
         """TODO: Docstring for mensaje.
 

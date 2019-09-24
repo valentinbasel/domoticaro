@@ -22,7 +22,7 @@
 ###############################################################################
 
 from .opencv.camara import CAM
-from .xlib_notebook.interface_falsa import INTERFACES
+#from .xlib_notebook.interface_falsa import INTERFACES
 from .voz.espeak import VOZ
 
 class ROBOT(object):
@@ -33,10 +33,15 @@ class ROBOT(object):
         """TODO: to be defined1. """
         self.camara = CAM()
         self.voz = VOZ()
-        self.interfaces=INTERFACES()
+        #self.interfaces=INTERFACES()
         if placa == "icaro_cdc":
             from .hardware.icaro import PIC18F4550
-            self.hardware=PIC18F4550("cdc")
+            self.hardware=PIC18F4550("apicaro")
+        elif placa == "arduino":
+            from .hardware.arduino import ARDUINO
+            self.hardware = ARDUINO("arduino")
+        else :
+            self.hardware = None
 
 
 def iniciar(placa = "icaro_cdc"):
@@ -44,7 +49,7 @@ def iniciar(placa = "icaro_cdc"):
     :returns: TODO
 
     """
-    placas=["icaro_cdc"]
+    placas=["icaro_cdc", "arduino",None]
     if placa in placas:
         robot=ROBOT(placa)
     else:

@@ -262,8 +262,6 @@ class INTERFACES(object):
         :returns: TODO
 
         """
-        # if key not in keyboardMapping or keyboardMapping[key] is None:
-            # return
         boton = self._display.keysym_to_keycode(Xlib.XK.string_to_keysym(str(key)))
         if boton == 0 :
             print ("el simbolo: ",boton," no es reconocido como un simbolo valido")
@@ -274,10 +272,4 @@ class INTERFACES(object):
             self._display.sync()
 
 
-#Mouse = MOUSE()
-#Mouse.mover(90,300)
-#Mouse.click('derecho')
-#Mouse.mover_relativo(100,10)
-#while(True):
-#    print Mouse.posicion()
-#    time.sleep(0.1)
+

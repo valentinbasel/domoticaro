@@ -38,7 +38,8 @@ casa.hardware.iniciar("/dev/ttyACM0")
 rele1 = casa.hardware.Rele_1
 
 eli=ELIZA()
-c = CHATBOT("TOKEN")
+#652982145:AAH8Nb15GuXEbVtfGU4TGlhBNlFUEmr94vo
+c = CHATBOT("652982145:AAH8Nb15GuXEbVtfGU4TGlhBNlFUEmr94vo")
 c.ordenes["start"]=start
 c.recibir(recibir)
 c.bucle_espera()
